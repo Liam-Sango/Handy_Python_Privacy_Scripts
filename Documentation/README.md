@@ -1,2 +1,2 @@
-# Handy_Python_Privacy_Scripts
+# Handy_privacy_Scripts
 PLACEHOLDER (Things will go here)
