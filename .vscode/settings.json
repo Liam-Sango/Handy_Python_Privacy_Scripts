@@ -1,3 +1,10 @@
 {
-    "makefile.makefilePath": "${workspaceFolder}"
+    "makefile.makefilePath": "${workspaceFolder}",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/anon/Desktop/Personal/code/Handy_Python_Privacy_Scripts/bin",
+            "binaryPath": "/home/anon/Desktop/Personal/code/Handy_Python_Privacy_Scripts/bin/main",
+            "binaryArgs": []
+        }
+    ]
 }

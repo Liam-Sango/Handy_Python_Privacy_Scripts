@@ -3,6 +3,7 @@
 CC := gcc
 CFLAGS := -Wall -Wextra -pedantic -std=c99 -g
 CPPFLAGS := -I./include
+LDFLAGS := -lssl -lcrypto
 
 # Directories
 BUILD_DIR := build
@@ -41,7 +42,7 @@ $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)/src $(OBJ_DIR)/src/Core $(OBJ_DIR)/src/Core/Cre
 
 # Link executable
 $(TARGET): $(OBJECTS) | $(BIN_DIR)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 	@echo "✓ Build complete: $@"
 
 # Clean build artifacts
