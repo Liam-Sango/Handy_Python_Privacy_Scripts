@@ -1,3 +1,4 @@
+//Includes
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +8,13 @@
 #include <openssl/err.h>
 
 #include "../../include/Modules/random.h" 
+#include "../../include/Modules/file_handler.h" 
 
+
+//Global variables
+
+
+//Functions
 int Generate_raw_random_bytes(int Gen_amt, unsigned char rand_buffer[Gen_amt]) {
     //Ensures cryptographic algorithms and error strings are available.
     OpenSSL_add_all_algorithms();
@@ -68,6 +75,13 @@ unsigned long long int Generate_random_number(int lower_range, int upper_range) 
     Final_number = (Generated_Number % Target_Range) + lower_range;
 
   return Final_number;
+}
+
+char* Generate_Rand_Phrase (int Phrase_length) {
+}
+
+char* Generate_Rand_String (int String_length) {
+
 }
 
 

@@ -11,7 +11,7 @@
 
 int main() {  
     int lower = 1;
-    int upper = 1000;
+    int upper = 255;
     printf("NUMBERS:\n");
     for (int x = 0; x < 10; x++) {
         unsigned long long int number = Generate_random_number(lower, upper);
