@@ -5,9 +5,8 @@
 int Generate_raw_random_bytes(int Gen_amt, unsigned char rand_buffer[Gen_amt]);
 
 //generates a large random number
-int Generate_random_number();
+unsigned long long int Generate_random_number(int lower_range, int upper_range);
 
 //Generates a random number between a predefined range
-int generate_random_number_range(int lower_limit, int upper_limit);
 
 #endif // RANDOM_H

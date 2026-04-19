@@ -10,10 +10,12 @@
 
 
 int main() {  
-
-    for (int i = 0; i < 10; i++) {
-        int random_number = Generate_random_number();
-         printf("%d\n", random_number);
+    int lower = 1;
+    int upper = 1000;
+    printf("NUMBERS:\n");
+    for (int x = 0; x < 10; x++) {
+        unsigned long long int number = Generate_random_number(lower, upper);
+        printf(" %u\n", number);
     }
-    
+
 }

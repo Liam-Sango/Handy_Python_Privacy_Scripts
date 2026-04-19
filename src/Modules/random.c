@@ -21,46 +21,53 @@ int Generate_raw_random_bytes(int Gen_amt, unsigned char rand_buffer[Gen_amt]) {
     //Generates random bytes
     int result = RAND_bytes(rand_buffer, Gen_amt);
     return 0;
-};
-
-int Generate_random_number() {
-    //Assigns variables
-    unsigned char raw_buffer[4];
-    unsigned int rand_num_arr[4];
-    bool invalid_nums_present;
-    int final_num;
-    int status;
-
-    // Loop until we generate a set of numbers with no zeros
-    do {
-        invalid_nums_present = false;
-        
-        // Generates random bytes
-        status = Generate_raw_random_bytes(4, raw_buffer);
-
-        // Check for generation failure
-        if (status == 1) {
-            return 1; 
-        }
-
-        // Converts the random bytes to an int array and checks for zeros
-        for (int x = 0; x < 4; x++) {
-            rand_num_arr[x] = raw_buffer[x];
-            
-            if (rand_num_arr[x] == 0) {
-                invalid_nums_present = true;
-                break; 
-            }
-        }
-    } while (invalid_nums_present); 
-
-    // Calculates the final number
-    final_num = rand_num_arr[0] * rand_num_arr[1] * rand_num_arr[2] * rand_num_arr[3];
-
-    return final_num;
 }
 
-//Generates a random number between a predefined range
-int generate_random_number_range(int lower_limit, int upper_limit) {
 
-};
+unsigned long long int Generate_random_number(int lower_range, int upper_range) {
+    //Assigns mathmatical variables.
+    unsigned long long int Generator_limit = 4294967296;
+    unsigned long long int Target_Range = upper_range - lower_range + 1;
+    unsigned long long int Modulo_Limit = Generator_limit - (Generator_limit % Target_Range);
+
+    
+    unsigned long long int Final_number = 0;
+    unsigned long long int Generated_Number = 0;   
+
+    //Error checking
+    if (lower_range >= upper_range) {
+        return 1;
+    }
+
+    bool Generated_num_valid = false;
+    while (Generated_num_valid == false) { 
+        int status;
+
+        // Generates random bytes.
+        unsigned char raw_buffer[4];
+        status = Generate_raw_random_bytes(4, raw_buffer);
+
+        // Check for generation failure.
+        if (status == 1) {
+           return 1; 
+        }
+    
+        //uses byte shifting to calculate the decimal result of our random bytes.
+        Generated_Number = (raw_buffer[0] << 24) | (raw_buffer[1] << 16) | (raw_buffer[2] << 8) | raw_buffer[3];
+
+
+        //Checks if the final number contains modulo bias, Regenrates 
+        if (Generated_Number > Modulo_Limit) {
+            Generated_num_valid == false;
+            continue;
+        } else {
+            Generated_num_valid == true;
+        }  
+    }
+
+    Final_number = (Generated_Number % Modulo_Limit) + lower_range;
+
+  return Final_number;
+}
+
+
