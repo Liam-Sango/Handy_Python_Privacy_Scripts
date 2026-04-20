@@ -76,10 +76,3 @@ unsigned long long int Generate_random_number(int lower_range, int upper_range) 
   return Final_number;
 }
 
-char* Generate_Rand_Phrase (int Phrase_length) {
-    return NULL;
-}
-
-char* Generate_Rand_String (int String_length) {
-    return NULL;
-}
