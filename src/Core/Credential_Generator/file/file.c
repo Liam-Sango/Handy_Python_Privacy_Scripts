@@ -78,6 +78,7 @@ char* get_random_file_line (char full_path[512]) {
     //Navigates to the start of the file
     fseek(fileptr, 0, SEEK_SET);
 
+
     //Generates a random line position
     unsigned long long int temp_line_position = Generate_random_number(0, file_size);
 
@@ -86,6 +87,9 @@ char* get_random_file_line (char full_path[512]) {
     }
 
     long int random_line_position = temp_line_position;
+
+    //Navigates to the random line.
+    fseek(fileptr, random_line_position, SEEK_CUR);
 
     //Reads the randomly placed file line.
     fgets(file_line, 512, fileptr);
