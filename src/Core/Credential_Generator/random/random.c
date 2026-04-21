@@ -76,3 +76,6 @@ unsigned long long int Generate_random_number(int lower_range, int upper_range) 
   return Final_number;
 }
 
+char* Generate_Random_string (int length, char* char_list) {
+    return NULL;
+}
