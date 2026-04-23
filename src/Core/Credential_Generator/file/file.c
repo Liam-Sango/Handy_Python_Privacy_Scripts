@@ -4,8 +4,9 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "file.h"
+#include <locale.h>  
 
+#include "file.h"
 #include "../random/random.h"
 
 

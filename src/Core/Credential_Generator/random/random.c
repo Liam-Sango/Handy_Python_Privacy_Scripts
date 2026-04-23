@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <wchar.h>
+#include <locale.h>  
 
 #include <openssl/rand.h>
 #include <openssl/err.h>
@@ -14,7 +16,7 @@
 
 
 //Functions
-int Generate_raw_random_bytes(int Gen_amt, unsigned char* rand_buffer) {.
+int Generate_raw_random_bytes(int Gen_amt, unsigned char* rand_buffer) {
     OpenSSL_add_all_algorithms();
     ERR_load_crypto_strings();
 
@@ -64,6 +66,8 @@ unsigned long long int Generate_random_number(int lower_range, int upper_range) 
     return Final_number;
 }
 
-char* Generate_Random_string (int length, char* char_list) {
+wchar_t* Generate_Random_UTF8_string (int string_length, int lower_char_limit, int upper_char_limit, int char_list_length) {
+    setlocale(LC_ALL, "");
+
     return NULL;
 }
