@@ -10,7 +10,7 @@ int Generate_raw_random_bytes(int Gen_amt, unsigned char* rand_buffer);
 unsigned long long int Generate_random_number(int lower_range, int upper_range);
 
 //Generates a cryptographically random string based on a user defined character set
-wchar_t* Generate_Random_UTF16_string (int string_length, int lower_char_limit, int upper_char_limit, int char_list_length);
+char* Generate_Random_UTF16_string (int string_length, int lower_char_limit, int upper_char_limit, int char_list_length);
 
 
 
