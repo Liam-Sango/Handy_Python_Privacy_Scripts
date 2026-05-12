@@ -7,7 +7,7 @@ Used to generate consise commit messages.
 
 # HOW AI WAS NOT USED IN THIS PROJECT
 
-To generate bug fixes
+To generate full bug fixes
 To write entire pieces of functional code in any manor.
 To architect the project in any way shape or form.
 

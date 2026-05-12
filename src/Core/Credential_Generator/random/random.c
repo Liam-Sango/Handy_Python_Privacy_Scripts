@@ -153,7 +153,6 @@ if (User_range_invalid == true) {
 int32_t capacity = (string_length * 4) + 1;
 char *buffer = malloc(capacity);
 if (!buffer) return NULL;
-
 int32_t index = 0;
 bool is_error = false;
 

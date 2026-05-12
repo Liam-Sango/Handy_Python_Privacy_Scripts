@@ -1,2 +1,2 @@
-# Requires random.c
+# Requires OPENSSL
 # Requires ICU UNICODE C LIBRARY
