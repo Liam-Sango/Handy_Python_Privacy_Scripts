@@ -1,9 +1,9 @@
-# Handy Python Privacy Scripts - Makefile
+# Credential Generator - Makefile
 # Compiler and flags
 CC := gcc
 CFLAGS := -Wall -Wextra -pedantic -std=c99 -g
 CPPFLAGS := -I./include
-LDFLAGS := -lssl -lcrypto
+LDFLAGS := -lssl -lcrypto -licuuc -licudata -licuio
 
 # Directories
 BUILD_DIR := build
@@ -13,13 +13,11 @@ OBJ_DIR := $(BUILD_DIR)/obj
 # Main executable
 TARGET := $(BIN_DIR)/main
 
-# Source files - Core tools are now self-contained
+# Source files
 SOURCES := main.c \
            src/Core/Credential_Generator/Credential_Generator.c \
            src/Core/Credential_Generator/random/random.c \
-           src/Core/Timezone_Manager/Timezone_Manager.c \
-           src/Core/Webpage_Downloader/Webpage_Downloader.c \
-           src/Core/Writing_Anonymiser/Writing_Anonymiser.c
+           src/Core/Credential_Generator/file/file.c
 
 # Object files
 OBJECTS := $(patsubst %.c,$(OBJ_DIR)/%.o,$(SOURCES))
@@ -29,7 +27,7 @@ TEST_SOURCES := tests/test_random_utf8.c
 TEST_OBJECTS := $(patsubst %.c,$(OBJ_DIR)/%.o,$(TEST_SOURCES))
 TEST_RANDOM_OBJECT := $(OBJ_DIR)/src/Core/Credential_Generator/random/random.o
 TEST_BINARY := $(BIN_DIR)/test_random_utf8
-TEST_LDFLAGS := $(LDFLAGS) -licuuc -licudata
+TEST_LDFLAGS := $(LDFLAGS)
 
 # Default target
 .PHONY: all
@@ -40,11 +38,11 @@ $(BUILD_DIR) $(BIN_DIR) $(OBJ_DIR):
 	@mkdir -p $@
 
 # Build subdirectories in OBJ_DIR
-$(OBJ_DIR)/src $(OBJ_DIR)/src/Core $(OBJ_DIR)/src/Core/Credential_Generator $(OBJ_DIR)/src/Core/Credential_Generator/random $(OBJ_DIR)/src/Core/Timezone_Manager $(OBJ_DIR)/src/Core/Webpage_Downloader $(OBJ_DIR)/src/Core/Writing_Anonymiser $(OBJ_DIR)/tests: | $(OBJ_DIR)
+$(OBJ_DIR)/src $(OBJ_DIR)/src/Core $(OBJ_DIR)/src/Core/Credential_Generator $(OBJ_DIR)/src/Core/Credential_Generator/random $(OBJ_DIR)/src/Core/Credential_Generator/file $(OBJ_DIR)/tests: | $(OBJ_DIR)
 	@mkdir -p $@
 
 # Compile source files
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)/src $(OBJ_DIR)/src/Core $(OBJ_DIR)/src/Core/Credential_Generator $(OBJ_DIR)/src/Core/Credential_Generator/random $(OBJ_DIR)/src/Core/Timezone_Manager $(OBJ_DIR)/src/Core/Webpage_Downloader $(OBJ_DIR)/src/Core/Writing_Anonymiser $(OBJ_DIR)/tests
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)/src $(OBJ_DIR)/src/Core $(OBJ_DIR)/src/Core/Credential_Generator $(OBJ_DIR)/src/Core/Credential_Generator/random $(OBJ_DIR)/src/Core/Credential_Generator/file $(OBJ_DIR)/tests
 	$(CC) $(CPPFLAGS) $(CFLAGS) -I. -c $< -o $@
 
 # Link executable

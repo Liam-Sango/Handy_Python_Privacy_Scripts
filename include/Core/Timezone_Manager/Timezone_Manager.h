@@ -1,4 +1,0 @@
-#ifndef TIMEZONE_MANAGER_H
-#define TIMEZONE_MANAGER_H
-
-#endif // TIMEZONE_MANAGER_H
