@@ -117,6 +117,19 @@ char* Full_Name_generator() {
 
 //Random Number generator
 //FORMAT: Random number
-void date_time_Generator () {
-    return 0;
+char* date_time_Generator() {
+	unsigned long long int year = Generate_random_number(1970, 2026);
+	unsigned long long int month = Generate_random_number(1, 12);
+	unsigned long long int day = Generate_random_number(1, 28);
+	unsigned long long int hour = Generate_random_number(0, 23);
+	unsigned long long int minute = Generate_random_number(0, 59);
+	unsigned long long int second = Generate_random_number(0, 59);
+
+	char* datetime = malloc(20);
+	if (!datetime) return NULL;
+
+	snprintf(datetime, 20, "%04llu-%02llu-%02llu %02llu:%02llu:%02llu",
+		year, month, day, hour, minute, second);
+
+	return datetime;
 }
