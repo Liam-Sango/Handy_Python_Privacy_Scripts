@@ -4,19 +4,38 @@
 #include <ctype.h>
 
 #include "src/Core/Credential_Generator/random/random.h"
+#include "src/Core/Credential_Generator/file/file.h"
 
-int main(int argc, char* argv[]) {
-    if (argc < 3) {
-        printf("Usage: %s <wordlist_path> <phrase_length>\n", argv[0]);
-        return 1;
-    }
+int main() {
+//Main CLI will go here.
+}
 
-    char* phrase = Generate_Random_Phrase(argv[1], atoi(argv[2]));
-    if (!phrase) {
-        printf("Failed to generate random phrase.\n");
-        return 1;
-    }
-    printf("%s\n", phrase);
-    free(phrase);
+//Phrase generator, UTF8 string generator, Random number generator
+//FORMAT: Random_phrase_1, Random_Phrase_2, Random_number
+void Username_generator () {
+    return 0;
+}
+
+// UTF8 string Generator
+//FORMAT: Random_String (Defined char set)
+void password_generator () {
+    return 0;
+}
+
+// Phrase generator
+//FORMAT: Random_phrase
+void Passphrase_generator () {
+    return 0;
+}
+
+// Phrase generator
+// FORMAT: Random_phrase_1, Random_phrase_2, Random_phrase_3
+void Full_Name_generator () {
+    return 0;
+}
+
+//Random Number generator
+//FORMAT: Random number
+void date_time_Generator () {
     return 0;
 }
