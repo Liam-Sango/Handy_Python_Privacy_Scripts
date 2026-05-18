@@ -55,8 +55,13 @@ char* Username_generator() {
 
 // UTF8 string Generator
 //FORMAT: Random_String (Defined char set)
-void password_generator () {
-    return 0;
+char* password_generator() {
+	int password_length = 20;
+	UChar32 lower_limit = 0x21;
+	UChar32 upper_limit = 0x7E;
+
+	char* password = Generate_Random_UTF8_string(password_length, lower_limit, upper_limit);
+	return password;
 }
 
 // Phrase generator
