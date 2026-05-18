@@ -21,7 +21,25 @@ static char* trim_whitespace(char* str) {
 }
 
 int main() {
-//Main CLI will go here.
+	char* username = Username_generator();
+	char* password = password_generator();
+	char* passphrase = Passphrase_generator();
+	char* full_name = Full_Name_generator();
+	char* date_time = date_time_Generator();
+
+	printf("Username:    %s\n", username ? username : "ERROR");
+	printf("Password:    %s\n", password ? password : "ERROR");
+	printf("Passphrase:  %s\n", passphrase ? passphrase : "ERROR");
+	printf("Full Name:   %s\n", full_name ? full_name : "ERROR");
+	printf("Date/Time:   %s\n", date_time ? date_time : "ERROR");
+
+	free(username);
+	free(password);
+	free(passphrase);
+	free(full_name);
+	free(date_time);
+
+	return 0;
 }
 
 //Phrase generator, UTF8 string generator, Random number generator
